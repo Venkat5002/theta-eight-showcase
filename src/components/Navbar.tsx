@@ -37,7 +37,7 @@ const Navbar = () => {
               {"{ Dev }"}
             </Badge>
             <span className="font-bold text-xl text-primary">
-              Bunny
+              Venkat
               <span className="text-accent">.</span>
             </span>
           </div>

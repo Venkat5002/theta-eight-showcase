@@ -37,7 +37,7 @@ const ContactSection = () => {
                   </div>
                   <div>
                     <p className="text-sm text-muted-foreground">Email</p>
-                    <p className="font-medium text-foreground">bhavashesh@gmail.com</p>
+                    <p className="font-medium text-foreground">venigalla.venkata.rupin@example.com</p>
                   </div>
                 </div>
                 
@@ -46,8 +46,8 @@ const ContactSection = () => {
                     <Phone className="w-5 h-5 text-primary" />
                   </div>
                   <div>
-                    <p className="text-sm text-muted-foreground">Phone</p>
-                    <p className="font-medium text-foreground">+91 98498 00511</p>
+                    <p className="text-sm text-muted-foreground">University</p>
+                    <p className="font-medium text-foreground">Malla Reddy University</p>
                   </div>
                 </div>
                 
@@ -60,6 +60,16 @@ const ContactSection = () => {
                     <p className="font-medium text-foreground">India</p>
                   </div>
                 </div>
+                
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
+                    <Github className="w-5 h-5 text-primary" />
+                  </div>
+                  <div>
+                    <p className="text-sm text-muted-foreground">GitHub</p>
+                    <p className="font-medium text-foreground">Venkat5002</p>
+                  </div>
+                </div>
               </CardContent>
             </Card>
 
@@ -69,12 +79,14 @@ const ContactSection = () => {
                 <CardTitle className="text-xl text-primary">Social Media</CardTitle>
               </CardHeader>
               <CardContent className="space-y-3">
-                <Button variant="ghost" className="w-full justify-start gap-3 hover:bg-primary/10">
-                  <Github className="w-5 h-5" />
-                  <div className="text-left">
-                    <p className="font-medium">GitHub</p>
-                    <p className="text-xs text-muted-foreground">bunnysunny24</p>
-                  </div>
+                <Button variant="ghost" className="w-full justify-start gap-3 hover:bg-primary/10" asChild>
+                  <a href="https://github.com/Venkat5002" target="_blank" rel="noopener noreferrer">
+                    <Github className="w-5 h-5" />
+                    <div className="text-left">
+                      <p className="font-medium">GitHub</p>
+                      <p className="text-xs text-muted-foreground">Venkat5002</p>
+                    </div>
+                  </a>
                 </Button>
                 
                 <Button variant="ghost" className="w-full justify-start gap-3 hover:bg-primary/10" asChild>
@@ -93,9 +105,9 @@ const ContactSection = () => {
             <Card className="shadow-card bg-gradient-accent text-accent-foreground">
               <CardContent className="p-6 text-center">
                 <div className="w-3 h-3 bg-green-500 rounded-full mx-auto mb-3 animate-pulse"></div>
-                <h3 className="font-semibold mb-2">Available for Work</h3>
+                <h3 className="font-semibold mb-2">Available for Opportunities</h3>
                 <p className="text-sm opacity-90">
-                  Open to full-time opportunities and exciting projects
+                  Open to internships, projects, and learning opportunities
                 </p>
               </CardContent>
             </Card>

@@ -16,17 +16,19 @@ const Footer = () => {
                 {"{ Dev }"}
               </Badge>
               <span className="font-bold text-xl">
-                Bunny
+                Venkat
                 <span className="text-accent">.</span>
               </span>
             </div>
             <p className="text-primary-foreground/80 text-sm">
-              Full Stack Developer passionate about AI/ML, IoT, and blockchain technologies. 
-              Building meaningful digital solutions.
+              Computer Science Engineering student at Malla Reddy University. 
+              Passionate about full-stack development and building innovative digital solutions.
             </p>
             <div className="flex gap-3">
-              <Button variant="ghost" size="icon" className="hover:bg-primary-foreground/10">
-                <Github className="w-5 h-5" />
+              <Button variant="ghost" size="icon" className="hover:bg-primary-foreground/10" asChild>
+                <a href="https://github.com/Venkat5002" target="_blank" rel="noopener noreferrer">
+                  <Github className="w-5 h-5" />
+                </a>
               </Button>
               <Button variant="ghost" size="icon" className="hover:bg-primary-foreground/10" asChild>
                 <a href="https://www.linkedin.com/in/venkatarupin/" target="_blank" rel="noopener noreferrer">
@@ -68,8 +70,8 @@ const Footer = () => {
           <div>
             <h3 className="font-semibold mb-4">Get in Touch</h3>
             <div className="space-y-2 text-sm text-primary-foreground/80">
-              <p>bhavashesh@gmail.com</p>
-              <p>+91 98498 00511</p>
+              <p>venigalla.venkata.rupin@example.com</p>
+              <p>Malla Reddy University</p>
               <p>Available for opportunities</p>
             </div>
           </div>
@@ -78,10 +80,10 @@ const Footer = () => {
         {/* Bottom Section */}
         <div className="border-t border-primary-foreground/20 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-sm text-primary-foreground/60 mb-4 md:mb-0">
-            © {currentYear} Developer Portfolio. All rights reserved.
+            © {currentYear} Venkat Portfolio. All rights reserved.
           </p>
           <div className="flex items-center gap-1 text-sm text-primary-foreground/60">
-            Made with <Heart className="w-4 h-4 text-red-400 fill-current" /> and lots of coffee
+            Made with <Heart className="w-4 h-4 text-red-400 fill-current" /> by a CSE student
           </div>
         </div>
       </div>

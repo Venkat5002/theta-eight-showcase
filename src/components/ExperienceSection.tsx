@@ -26,57 +26,57 @@ const ExperienceSection = () => {
               <div className="flex items-start justify-between">
                 <div className="space-y-2">
                   <CardTitle className="text-xl text-primary">
-                    Samsung R&D Institute India, Bangalore
+                    Malla Reddy University
                   </CardTitle>
                   <h3 className="text-lg font-semibold text-foreground">
-                    Samsung Prism R&D Intern
+                    B.Tech in Computer Science Engineering
                   </h3>
                   <div className="flex flex-wrap gap-4 text-sm text-muted-foreground">
                     <div className="flex items-center gap-1">
                       <CalendarDays className="w-4 h-4" />
-                      March 2025 - Present
+                      2023 - Present
                     </div>
                     <div className="flex items-center gap-1">
                       <MapPin className="w-4 h-4" />
-                      Remote, India
+                      India
                     </div>
                   </div>
                 </div>
                 <Badge variant="secondary" className="flex items-center gap-1">
                   <Briefcase className="w-3 h-3" />
-                  Internship
+                  Student
                 </Badge>
               </div>
             </CardHeader>
             
             <CardContent className="space-y-6">
               <div>
-                <h4 className="font-semibold mb-3 text-foreground">Key Responsibilities</h4>
+                <h4 className="font-semibold mb-3 text-foreground">Academic Focus</h4>
                 <ul className="space-y-2 text-muted-foreground">
                   <li className="flex items-start gap-2">
                     <span className="w-1.5 h-1.5 bg-accent rounded-full mt-2 flex-shrink-0"></span>
-                    Built a multimodal deepfake detector using Swin-v2 and HuBERT with cross-attention, achieving 94%+ accuracy.
+                    Currently pursuing Computer Science Engineering with focus on modern development practices.
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="w-1.5 h-1.5 bg-accent rounded-full mt-2 flex-shrink-0"></span>
-                    Applied Grad-CAM, FFT, and contrastive learning for interpretable detection of audio-visual forgeries.
+                    Completed multiple training programs focusing on web development and data structures.
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="w-1.5 h-1.5 bg-accent rounded-full mt-2 flex-shrink-0"></span>
-                    Extracted rPPG pulse, blink rate, and GAN fingerprints to capture physiological and spectral anomalies.
+                    Active contributor to various development projects and coding challenges.
                   </li>
                 </ul>
               </div>
 
               <div className="bg-secondary/50 rounded-lg p-4">
                 <h4 className="font-semibold mb-2 text-foreground">Featured Project</h4>
-                <h5 className="text-primary font-medium mb-2">DeepFake Audio-Video Detection</h5>
+                <h5 className="text-primary font-medium mb-2">E-Commerce & Project Management Platform</h5>
                 <p className="text-sm text-muted-foreground mb-3">
-                  Technologies: Python, PyTorch, Swin Transformers, Wav2Vec2, EfficientNet, OpenCV
+                  Technologies: React, Node.js, MongoDB, PostgreSQL, HTML, CSS, JavaScript
                 </p>
                 <p className="text-sm text-muted-foreground">
-                  Extracted multimodal features via facial landmarks, rPPG signals, blink metrics, 
-                  and Wav2Vec2/HuBERT acoustic embeddings for advanced deepfake detection.
+                  Built comprehensive E-Commerce website and Project Management tool featuring shopping, 
+                  payments, task management, and tracking capabilities.
                 </p>
               </div>
 
@@ -84,7 +84,7 @@ const ExperienceSection = () => {
               <div>
                 <h4 className="font-semibold mb-3 text-foreground">Technologies Used</h4>
                 <div className="flex flex-wrap gap-2">
-                  {["Python", "PyTorch", "TensorFlow", "Swin Transformers", "HuBERT", "OpenCV", "Grad-CAM", "FFT"].map((tech) => (
+                  {["Java", "React", "Node.js", "MongoDB", "PostgreSQL", "HTML", "CSS", "JavaScript"].map((tech) => (
                     <Badge key={tech} variant="outline" className="text-xs">
                       {tech}
                     </Badge>
@@ -97,16 +97,16 @@ const ExperienceSection = () => {
           {/* Achievement Stats */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
             <Card className="text-center p-6 shadow-card hover:shadow-elegant transition-all duration-300">
-              <div className="text-3xl font-bold text-accent mb-2">94%+</div>
-              <div className="text-sm text-muted-foreground">Detection Accuracy</div>
+              <div className="text-3xl font-bold text-accent mb-2">2nd</div>
+              <div className="text-sm text-muted-foreground">Year CSE Student</div>
             </Card>
             <Card className="text-center p-6 shadow-card hover:shadow-elegant transition-all duration-300">
-              <div className="text-3xl font-bold text-accent mb-2">5+</div>
-              <div className="text-sm text-muted-foreground">AI Models Implemented</div>
+              <div className="text-3xl font-bold text-accent mb-2">6+</div>
+              <div className="text-sm text-muted-foreground">GitHub Repositories</div>
             </Card>
             <Card className="text-center p-6 shadow-card hover:shadow-elegant transition-all duration-300">
-              <div className="text-3xl font-bold text-accent mb-2">Research</div>
-              <div className="text-sm text-muted-foreground">Publication Ready</div>
+              <div className="text-3xl font-bold text-accent mb-2">MRU</div>
+              <div className="text-sm text-muted-foreground">University Training</div>
             </Card>
           </div>
         </div>

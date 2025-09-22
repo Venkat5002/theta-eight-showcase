@@ -35,21 +35,21 @@ const HeroSection = () => {
                 <h1 className="text-5xl lg:text-6xl font-bold">
                   Hi, I'm{" "}
                   <span className="bg-gradient-primary bg-clip-text text-transparent">
-                    Developer
+                    Venkat
                   </span>
                 </h1>
                 
                 <h2 className="text-2xl lg:text-3xl text-foreground">
-                  Full Stack Developer with{" "}
-                  <span className="text-accent font-semibold">AI/ML expertise</span>
+                  Computer Science Student & {" "}
+                  <span className="text-accent font-semibold">Full Stack Developer</span>
                   <span className="text-muted-foreground font-mono">&lt;/&gt;</span>
                 </h2>
               </div>
               
               <p className="text-lg text-muted-foreground leading-relaxed max-w-lg">
-                I'm a 2nd-year B.Tech student passionate about technology and innovation. 
-                I explore frontend development, AI/ML, IoT, and blockchain to build 
-                meaningful, user-centered digital solutions.
+                I'm a passionate Computer Science Engineering student at Malla Reddy University. 
+                Where technology meets creativity, you'll find me using my technical skills to 
+                forge memorable digital experiences and innovative solutions.
               </p>
             </div>
             
@@ -69,8 +69,10 @@ const HeroSection = () => {
             <div className="flex items-center gap-4">
               <span className="text-sm text-muted-foreground">Find me on:</span>
               <div className="flex gap-3">
-                <Button variant="ghost" size="icon" className="hover:text-primary">
-                  <Github className="w-5 h-5" />
+                <Button variant="ghost" size="icon" className="hover:text-primary" asChild>
+                  <a href="https://github.com/Venkat5002" target="_blank" rel="noopener noreferrer">
+                    <Github className="w-5 h-5" />
+                  </a>
                 </Button>
                 <Button variant="ghost" size="icon" className="hover:text-primary" asChild>
                   <a href="https://www.linkedin.com/in/venkatarupin/" target="_blank" rel="noopener noreferrer">
@@ -93,12 +95,12 @@ const HeroSection = () => {
               {/* Tech badges */}
               <div className="absolute -top-4 -left-8 z-10">
                 <Badge className="bg-card shadow-card text-card-foreground font-mono">
-                  &lt;TensorFlow/&gt;
+                  &lt;Java/&gt;
                 </Badge>
               </div>
               <div className="absolute -bottom-4 -right-8 z-10">
                 <Badge className="bg-card shadow-card text-card-foreground font-mono">
-                  &lt;scikit-learn/&gt;
+                  &lt;React/&gt;
                 </Badge>
               </div>
               
@@ -115,14 +117,14 @@ const HeroSection = () => {
                 {/* Stats badges */}
                 <div className="absolute top-8 -right-12">
                   <div className="bg-card rounded-lg p-3 shadow-card">
-                    <div className="text-2xl font-bold text-accent">1 YR+</div>
-                    <div className="text-xs text-muted-foreground">Experience</div>
+                    <div className="text-2xl font-bold text-accent">2nd</div>
+                    <div className="text-xs text-muted-foreground">Year CSE</div>
                   </div>
                 </div>
                 
                 <div className="absolute bottom-8 -left-12">
                   <div className="bg-card rounded-lg p-3 shadow-card">
-                    <div className="text-2xl font-bold text-accent">20+</div>
+                    <div className="text-2xl font-bold text-accent">6+</div>
                     <div className="text-xs text-muted-foreground">Projects</div>
                   </div>
                 </div>

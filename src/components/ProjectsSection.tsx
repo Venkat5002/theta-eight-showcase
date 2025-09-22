@@ -6,40 +6,44 @@ import { ExternalLink, Github, Play } from "lucide-react";
 const ProjectsSection = () => {
   const projects = [
     {
-      title: "DeepFake Detection System",
-      description: "Advanced multimodal AI system for detecting audio-video deepfakes using Swin-v2 and HuBERT transformers with cross-attention mechanisms.",
-      image: "https://images.unsplash.com/photo-1507146426996-ef05306b995a?w=500&h=300&fit=crop",
-      technologies: ["Python", "PyTorch", "Swin Transformers", "HuBERT", "OpenCV"],
-      category: "AI/ML",
-      status: "Research",
-      highlights: ["94%+ Accuracy", "Cross-attention", "Real-time Processing"]
-    },
-    {
-      title: "Smart IoT Dashboard",
-      description: "Full-stack IoT monitoring dashboard with real-time data visualization, predictive analytics, and automated alert systems.",
-      image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=500&h=300&fit=crop",
-      technologies: ["React", "Node.js", "MongoDB", "WebSocket", "Arduino"],
-      category: "IoT",
+      title: "E-Commerce & Project Management Platform",
+      description: "Comprehensive platform featuring E-Commerce website with shopping cart, payments, and a Project Management Tool with task tracking and management capabilities.",
+      image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=500&h=300&fit=crop",
+      technologies: ["React", "Node.js", "MongoDB", "PostgreSQL", "HTML", "CSS"],
+      category: "Full Stack",
       status: "Production",
-      highlights: ["Real-time Data", "Predictive Analytics", "Mobile Responsive"]
+      highlights: ["E-Commerce", "Task Management", "Payment Integration"],
+      github: "https://github.com/Venkat5002/codsoft-task-1-and-task-2"
     },
     {
-      title: "Blockchain Voting System",
-      description: "Secure and transparent voting application built on Ethereum blockchain with smart contracts and decentralized identity verification.",
-      image: "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=500&h=300&fit=crop",
-      technologies: ["Solidity", "Web3.js", "React", "Ethereum", "IPFS"],
-      category: "Blockchain",
+      title: "Data Structures & Algorithms",
+      description: "Comprehensive collection of DSA implementations and problem solutions demonstrating algorithmic thinking and programming proficiency in Java.",
+      image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=500&h=300&fit=crop",
+      technologies: ["Java", "Algorithms", "Data Structures"],
+      category: "Programming",
       status: "Development",
-      highlights: ["Decentralized", "Secure Voting", "Smart Contracts"]
+      highlights: ["Problem Solving", "Java Programming", "Algorithm Design"],
+      github: "https://github.com/Venkat5002/DSA8"
     },
     {
-      title: "AI-Powered Chat Assistant",
-      description: "Intelligent conversational AI with natural language processing, context awareness, and multi-domain knowledge integration.",
-      image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=500&h=300&fit=crop",
-      technologies: ["Python", "Transformers", "FastAPI", "React", "PostgreSQL"],
-      category: "AI/ML",
+      title: "University Training Projects",
+      description: "Collection of all coding programs and projects completed during training program at Malla Reddy University, showcasing learning progression.",
+      image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=500&h=300&fit=crop",
+      technologies: ["JavaScript", "HTML", "CSS", "Java"],
+      category: "Academic",
       status: "Production",
-      highlights: ["NLP Integration", "Context Aware", "Multi-domain"]
+      highlights: ["Academic Projects", "Learning Portfolio", "Training Program"],
+      github: "https://github.com/Venkat5002/Training-01---2311CS010689-"
+    },
+    {
+      title: "Java Programming Portfolio",
+      description: "Comprehensive Java programming assignments and projects from 2nd year 1st semester, focusing on data structures using Java programming language.",
+      image: "https://images.unsplash.com/photo-1517180102446-f3ece451e9d8?w=500&h=300&fit=crop",
+      technologies: ["Java", "Data Structures", "OOP"],
+      category: "Academic",
+      status: "Production",
+      highlights: ["Object-Oriented", "Data Structures", "Java Expertise"],
+      github: "https://github.com/Venkat5002/java-programming-done-in-2nd-year-1st-semester-"
     }
   ];
 
@@ -64,7 +68,7 @@ const ProjectsSection = () => {
             Recent <span className="text-accent">Projects</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            A showcase of my latest projects spanning AI/ML, full-stack development, IoT, and blockchain technologies.
+            A showcase of my latest projects spanning full-stack development, data structures, and academic achievements from my Computer Science journey.
           </p>
         </div>
 
@@ -124,9 +128,11 @@ const ProjectsSection = () => {
 
                 {/* Action Buttons */}
                 <div className="flex gap-3 pt-2">
-                  <Button variant="outline" size="sm" className="flex-1">
-                    <Github className="w-4 h-4" />
-                    Code
+                  <Button variant="outline" size="sm" className="flex-1" asChild>
+                    <a href={project.github} target="_blank" rel="noopener noreferrer">
+                      <Github className="w-4 h-4" />
+                      View Code
+                    </a>
                   </Button>
                   {project.status === "Production" && (
                     <Button variant="outline" size="sm" className="flex-1">
@@ -148,9 +154,11 @@ const ProjectsSection = () => {
 
         {/* View More Button */}
         <div className="text-center mt-12">
-          <Button variant="hero" size="lg">
-            View All Projects
-            <ExternalLink className="w-4 h-4" />
+          <Button variant="hero" size="lg" asChild>
+            <a href="https://github.com/Venkat5002" target="_blank" rel="noopener noreferrer">
+              View All Projects on GitHub
+              <ExternalLink className="w-4 h-4" />
+            </a>
           </Button>
         </div>
       </div>

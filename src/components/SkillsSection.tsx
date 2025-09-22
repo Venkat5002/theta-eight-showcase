@@ -7,46 +7,46 @@ const SkillsSection = () => {
     {
       title: "Frontend Development",
       skills: [
-        { name: "React/Next.js", level: 90 },
-        { name: "TypeScript", level: 85 },
-        { name: "Tailwind CSS", level: 95 },
-        { name: "Vue.js", level: 75 },
+        { name: "React", level: 85 },
+        { name: "JavaScript", level: 90 },
+        { name: "HTML/CSS", level: 95 },
+        { name: "Node.js", level: 75 },
       ]
     },
     {
-      title: "AI/ML & Data Science",
+      title: "Programming Languages",
       skills: [
-        { name: "Python", level: 95 },
-        { name: "TensorFlow", level: 90 },
-        { name: "PyTorch", level: 85 },
-        { name: "scikit-learn", level: 90 },
+        { name: "Java", level: 90 },
+        { name: "JavaScript", level: 85 },
+        { name: "Python", level: 80 },
+        { name: "C/C++", level: 75 },
       ]
     },
     {
-      title: "Backend & Database",
+      title: "Database & Backend",
       skills: [
-        { name: "Node.js", level: 85 },
-        { name: "PostgreSQL", level: 80 },
-        { name: "MongoDB", level: 75 },
-        { name: "GraphQL", level: 70 },
+        { name: "MongoDB", level: 80 },
+        { name: "PostgreSQL", level: 75 },
+        { name: "Node.js", level: 75 },
+        { name: "Express.js", level: 70 },
       ]
     },
     {
       title: "Tools & Technologies",
       skills: [
-        { name: "Git/GitHub", level: 95 },
-        { name: "Docker", level: 80 },
-        { name: "AWS", level: 75 },
-        { name: "Linux", level: 85 },
+        { name: "Git/GitHub", level: 85 },
+        { name: "VS Code", level: 90 },
+        { name: "Netlify/Vercel", level: 70 },
+        { name: "Linux", level: 65 },
       ]
     }
   ];
 
   const certifications = [
-    "AWS Cloud Practitioner",
-    "TensorFlow Developer Certificate",
-    "Google Data Analytics",
-    "Meta Frontend Developer"
+    "Computer Science Engineering Student",
+    "MRU Training Program Graduate",
+    "Full Stack Development",
+    "Data Structures & Algorithms"
   ];
 
   return (
@@ -108,7 +108,7 @@ const SkillsSection = () => {
         <div className="mt-16 text-center">
           <h3 className="text-2xl font-bold mb-8 text-foreground">Preferred Tech Stack</h3>
           <div className="flex flex-wrap justify-center gap-3">
-            {["React", "TypeScript", "Python", "TensorFlow", "Node.js", "PostgreSQL", "Docker", "AWS", "Git", "Linux"].map((tech) => (
+            {["Java", "React", "JavaScript", "MongoDB", "Node.js", "PostgreSQL", "HTML", "CSS", "Git", "VS Code"].map((tech) => (
               <Badge 
                 key={tech} 
                 variant="secondary" 
