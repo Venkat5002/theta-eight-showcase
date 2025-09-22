@@ -77,12 +77,14 @@ const ContactSection = () => {
                   </div>
                 </Button>
                 
-                <Button variant="ghost" className="w-full justify-start gap-3 hover:bg-primary/10">
-                  <Linkedin className="w-5 h-5" />
-                  <div className="text-left">
-                    <p className="font-medium">LinkedIn</p>
-                    <p className="text-xs text-muted-foreground">bhavashesh</p>
-                  </div>
+                <Button variant="ghost" className="w-full justify-start gap-3 hover:bg-primary/10" asChild>
+                  <a href="https://www.linkedin.com/in/venkatarupin/" target="_blank" rel="noopener noreferrer">
+                    <Linkedin className="w-5 h-5" />
+                    <div className="text-left">
+                      <p className="font-medium">LinkedIn</p>
+                      <p className="text-xs text-muted-foreground">venkatarupin</p>
+                    </div>
+                  </a>
                 </Button>
               </CardContent>
             </Card>

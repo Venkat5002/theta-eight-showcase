@@ -28,8 +28,10 @@ const Footer = () => {
               <Button variant="ghost" size="icon" className="hover:bg-primary-foreground/10">
                 <Github className="w-5 h-5" />
               </Button>
-              <Button variant="ghost" size="icon" className="hover:bg-primary-foreground/10">
-                <Linkedin className="w-5 h-5" />
+              <Button variant="ghost" size="icon" className="hover:bg-primary-foreground/10" asChild>
+                <a href="https://www.linkedin.com/in/venkatarupin/" target="_blank" rel="noopener noreferrer">
+                  <Linkedin className="w-5 h-5" />
+                </a>
               </Button>
               <Button variant="ghost" size="icon" className="hover:bg-primary-foreground/10">
                 <Mail className="w-5 h-5" />
