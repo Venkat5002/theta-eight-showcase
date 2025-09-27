@@ -6,6 +6,16 @@ import { ExternalLink, Github, Play } from "lucide-react";
 const ProjectsSection = () => {
   const projects = [
     {
+      title: "Modern Developer Portfolio Website",
+      description: "Responsive and modern personal portfolio website built with React, TypeScript, and Tailwind CSS. Features dark/light mode, smooth animations, and professional design showcasing my projects and skills.",
+      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&h=300&fit=crop",
+      technologies: ["React", "TypeScript", "Tailwind CSS", "Vite", "Lucide Icons"],
+      category: "Frontend",
+      status: "Production",
+      highlights: ["Responsive Design", "Modern UI/UX", "Fast Performance"],
+      github: "https://github.com/Venkat5002/repo"
+    },
+    {
       title: "E-Commerce & Project Management Platform",
       description: "Comprehensive platform featuring E-Commerce website with shopping cart, payments, and a Project Management Tool with task tracking and management capabilities.",
       image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=500&h=300&fit=crop",
