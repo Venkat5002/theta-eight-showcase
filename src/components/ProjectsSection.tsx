@@ -6,6 +6,16 @@ import { ExternalLink, Github, Play } from "lucide-react";
 const ProjectsSection = () => {
   const projects = [
     {
+      title: "Weather Dashboard Application",
+      description: "Interactive weather dashboard with real-time weather data, 7-day forecasts, and location-based weather tracking. Features responsive design and dynamic weather animations.",
+      image: "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=500&h=300&fit=crop",
+      technologies: ["JavaScript", "HTML", "CSS", "Weather API", "Chart.js"],
+      category: "Frontend",
+      status: "Production",
+      highlights: ["API Integration", "Real-time Data", "Interactive Charts"],
+      github: "https://github.com/Venkat5002/DSA8"
+    },
+    {
       title: "Modern Developer Portfolio Website",
       description: "Responsive and modern personal portfolio website built with React, TypeScript, and Tailwind CSS. Features dark/light mode, smooth animations, and professional design showcasing my projects and skills.",
       image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&h=300&fit=crop",
