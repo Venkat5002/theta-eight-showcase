@@ -5,6 +5,7 @@ import SkillsSection from "@/components/SkillsSection";
 import ProjectsSection from "@/components/ProjectsSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
+import AIAssistant from "@/components/AIAssistant";
 
 const Index = () => {
   return (
@@ -26,6 +27,7 @@ const Index = () => {
         </section>
       </main>
       <Footer />
+      <AIAssistant />
     </div>
   );
 };
