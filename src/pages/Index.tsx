@@ -9,6 +9,7 @@ import Footer from "@/components/Footer";
 import AIAssistant from "@/components/AIAssistant";
 import ParticleField from "@/components/effects/ParticleField";
 import CustomCursor from "@/components/effects/CustomCursor";
+import WaveBackground from "@/components/effects/WaveBackground";
 
 const Index = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -44,6 +45,9 @@ const Index = () => {
       
       {/* Particle background */}
       <ParticleField />
+      
+      {/* 3D Wave background */}
+      <WaveBackground />
       
       <Navbar />
       <main className="relative z-10">
