@@ -7,6 +7,7 @@ import TypewriterText from "@/components/effects/TypewriterText";
 import MagneticButton from "@/components/effects/MagneticButton";
 import GlowingOrb from "@/components/effects/GlowingOrb";
 import ScrollReveal from "@/components/effects/ScrollReveal";
+import FloatingGeometry from "@/components/effects/FloatingGeometry";
 
 const HeroSection = () => {
   const containerVariants = {
@@ -40,6 +41,9 @@ const HeroSection = () => {
 
   return (
     <section className="min-h-screen relative overflow-hidden flex items-center">
+      {/* 3D Floating Geometry Background */}
+      <FloatingGeometry className="opacity-60" />
+      
       {/* Animated background orbs */}
       <GlowingOrb color="accent" size="lg" className="top-20 -left-32" delay={0} />
       <GlowingOrb color="primary" size="md" className="bottom-40 -right-20" delay={2} />
