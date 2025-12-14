@@ -7,6 +7,9 @@ const CustomCursor = () => {
   const [isHidden, setIsHidden] = useState(false);
 
   useEffect(() => {
+    // Add class to body to hide native cursor
+    document.body.classList.add("custom-cursor-active");
+
     const updateMousePosition = (e: MouseEvent) => {
       setMousePosition({ x: e.clientX, y: e.clientY });
     };
@@ -34,6 +37,7 @@ const CustomCursor = () => {
     document.addEventListener("mouseleave", handleMouseLeave);
 
     return () => {
+      document.body.classList.remove("custom-cursor-active");
       window.removeEventListener("mousemove", updateMousePosition);
       window.removeEventListener("mouseover", updateCursorType);
       document.removeEventListener("mouseenter", handleMouseEnter);

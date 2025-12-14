@@ -8,6 +8,7 @@ import MagneticButton from "@/components/effects/MagneticButton";
 import GlowingOrb from "@/components/effects/GlowingOrb";
 import ScrollReveal from "@/components/effects/ScrollReveal";
 import FloatingGeometry from "@/components/effects/FloatingGeometry";
+import { siteConfig } from "@/config/portfolio";
 
 const HeroSection = () => {
   const containerVariants = {
@@ -71,7 +72,7 @@ const HeroSection = () => {
             <motion.div variants={itemVariants}>
               <Badge variant="outline" className="text-muted-foreground font-mono border-accent/50 backdrop-blur-sm">
                 <span className="w-2 h-2 bg-green-500 rounded-full mr-2 animate-pulse" />
-                Available for hire
+                {siteConfig.availability.isAvailable ? siteConfig.availability.message : "Currently Unavailable"}
               </Badge>
             </motion.div>
             
@@ -89,7 +90,7 @@ const HeroSection = () => {
                   Hi, I'm{" "}
                   <span className="relative inline-block">
                     <span className="bg-gradient-primary bg-clip-text text-transparent">
-                      Venkat
+                      {siteConfig.name}
                     </span>
                     <motion.span
                       className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-accent rounded-full"
@@ -102,12 +103,7 @@ const HeroSection = () => {
                 
                 <h2 className="text-2xl lg:text-4xl text-foreground font-light">
                   <TypewriterText
-                    words={[
-                      "Full Stack Developer",
-                      "UI/UX Enthusiast",
-                      "Problem Solver",
-                      "Tech Innovator",
-                    ]}
+                    words={siteConfig.roles}
                     className="text-accent font-semibold"
                   />
                 </h2>
@@ -118,8 +114,7 @@ const HeroSection = () => {
               variants={itemVariants}
               className="text-lg text-muted-foreground leading-relaxed max-w-lg"
             >
-              Crafting exceptional digital experiences through elegant code and innovative design. 
-              Transforming ideas into reality, one pixel at a time.
+              {siteConfig.tagline}
             </motion.p>
             
             {/* CTA Buttons */}
@@ -152,10 +147,10 @@ const HeroSection = () => {
               <span className="text-sm text-muted-foreground">Connect:</span>
               <div className="flex gap-2">
                 {[
-                  { icon: Github, href: "https://github.com/Venkat5002", label: "GitHub" },
-                  { icon: Linkedin, href: "https://www.linkedin.com/in/venkatarupin/", label: "LinkedIn" },
-                  { icon: Phone, href: "#", label: "Phone" },
-                  { icon: Mail, href: "#", label: "Email" },
+                  { icon: Github, href: siteConfig.social.github, label: "GitHub" },
+                  { icon: Linkedin, href: siteConfig.social.linkedin, label: "LinkedIn" },
+                  { icon: Phone, href: siteConfig.contact.phone ? `tel:${siteConfig.contact.phone}` : "#", label: "Phone" },
+                  { icon: Mail, href: siteConfig.contact.email ? `mailto:${siteConfig.contact.email}` : "#", label: "Email" },
                 ].map(({ icon: Icon, href, label }) => (
                   <MagneticButton key={label} strength={0.4}>
                     <motion.a
@@ -230,7 +225,7 @@ const HeroSection = () => {
                   <div className="w-full h-full rounded-full overflow-hidden bg-gradient-to-br from-secondary to-background">
                     <img
                       src={developerPortrait}
-                      alt="Venkat - Developer Profile"
+                      alt={`${siteConfig.name} - Developer Profile`}
                       className="w-full h-full object-cover"
                     />
                   </div>
@@ -246,8 +241,8 @@ const HeroSection = () => {
                 animate={{ ...floatingAnimation, transition: { ...floatingAnimation.transition, delay: 0.5 } }}
               >
                 <div className="bg-card/80 backdrop-blur-md rounded-xl p-4 shadow-elegant border border-border/50">
-                  <div className="text-3xl font-bold bg-gradient-accent bg-clip-text text-transparent">2nd</div>
-                  <div className="text-xs text-muted-foreground">Year CSE</div>
+                  <div className="text-3xl font-bold bg-gradient-accent bg-clip-text text-transparent">{siteConfig.stats.yearLabel}</div>
+                  <div className="text-xs text-muted-foreground">{siteConfig.stats.yearDescription}</div>
                 </div>
               </motion.div>
               
@@ -256,8 +251,8 @@ const HeroSection = () => {
                 animate={{ ...floatingAnimation, transition: { ...floatingAnimation.transition, delay: 1.5 } }}
               >
                 <div className="bg-card/80 backdrop-blur-md rounded-xl p-4 shadow-elegant border border-border/50">
-                  <div className="text-3xl font-bold bg-gradient-primary bg-clip-text text-transparent">6+</div>
-                  <div className="text-xs text-muted-foreground">Projects</div>
+                  <div className="text-3xl font-bold bg-gradient-primary bg-clip-text text-transparent">{siteConfig.stats.projectCount}</div>
+                  <div className="text-xs text-muted-foreground">{siteConfig.stats.projectLabel}</div>
                 </div>
               </motion.div>
             </div>

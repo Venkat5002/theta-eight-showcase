@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Github, Linkedin, Mail, Phone, Heart, Sparkles } from "lucide-react";
+import { siteConfig, footerConfig } from "@/config/portfolio";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -26,21 +27,21 @@ const Footer = () => {
                 <Sparkles className="w-3 h-3 mr-1" />
                 {"{ Dev }"}
               </Badge>
-              <span className="font-bold text-xl">Venkat<span className="text-accent">.</span></span>
+              <span className="font-bold text-xl">{siteConfig.name}<span className="text-accent">.</span></span>
             </div>
             <p className="text-primary-foreground/70 text-sm">
               CSE student passionate about full-stack development and innovation.
             </p>
             <div className="flex gap-2">
               {[
-                { icon: Github, href: "https://github.com/Venkat5002" },
-                { icon: Linkedin, href: "https://www.linkedin.com/in/venkatarupin/" },
-                { icon: Mail, href: "#" },
-                { icon: Phone, href: "#" },
+                { icon: Github, href: siteConfig.social.github },
+                { icon: Linkedin, href: siteConfig.social.linkedin },
+                { icon: Mail, href: siteConfig.contact.email ? `mailto:${siteConfig.contact.email}` : "#" },
+                { icon: Phone, href: siteConfig.contact.phone ? `tel:${siteConfig.contact.phone}` : "#" },
               ].map(({ icon: Icon, href }, i) => (
                 <motion.div key={i} whileHover={{ scale: 1.1, y: -2 }}>
                   <Button variant="ghost" size="icon" className="hover:bg-primary-foreground/10" asChild>
-                    <a href={href} target="_blank" rel="noopener noreferrer">
+                    <a href={href} target={href.startsWith("http") ? "_blank" : undefined} rel="noopener noreferrer">
                       <Icon className="w-5 h-5" />
                     </a>
                   </Button>
@@ -50,9 +51,9 @@ const Footer = () => {
           </motion.div>
 
           {[
-            { title: "Quick Links", items: ["Experience", "Skills", "Projects", "Contact"] },
-            { title: "Services", items: ["Web Development", "Full Stack", "UI/UX", "APIs"] },
-            { title: "Contact", items: ["venkat@example.com", "Malla Reddy University", "Available for work"] },
+            { title: "Quick Links", items: footerConfig.quickLinks },
+            { title: "Services", items: footerConfig.services },
+            { title: "Contact", items: [siteConfig.contact.email, siteConfig.education.institution, siteConfig.availability.opportunityType] },
           ].map((section, i) => (
             <motion.div
               key={i}
@@ -71,10 +72,10 @@ const Footer = () => {
           ))}
         </div>
 
-        <div className="border-t border-primary-foreground/20 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-sm text-primary-foreground/60">© {currentYear} Venkat Portfolio</p>
+        <div className="border-t border-primary-foreground/20 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="text-sm text-primary-foreground/60">© {currentYear} {siteConfig.name} Portfolio</p>
           <div className="flex items-center gap-1 text-sm text-primary-foreground/60">
-            Made with <Heart className="w-4 h-4 text-red-400 fill-current animate-pulse" /> by Venkat
+            Made with <Heart className="w-4 h-4 text-red-400 fill-current animate-pulse" /> by {siteConfig.name}
           </div>
         </div>
       </div>

@@ -10,6 +10,8 @@ import AIAssistant from "@/components/AIAssistant";
 import ParticleField from "@/components/effects/ParticleField";
 import CustomCursor from "@/components/effects/CustomCursor";
 import WaveBackground from "@/components/effects/WaveBackground";
+import SEOHead from "@/components/SEOHead";
+import { siteConfig } from "@/config/portfolio";
 
 const Index = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -38,7 +40,10 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background overflow-x-hidden">
-      {/* Custom cursor - hidden on mobile */}
+      {/* SEO structured data */}
+      <SEOHead />
+      
+      {/* Custom cursor - hidden on mobile/tablet */}
       <div className="hidden lg:block">
         <CustomCursor />
       </div>

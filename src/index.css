@@ -140,9 +140,9 @@
     font-family: 'JetBrains Mono', monospace;
   }
 
-  /* Hide default cursor on desktop when custom cursor is active */
+  /* Custom cursor styling - native cursor hidden only when custom cursor is visible */
   @media (min-width: 1024px) {
-    * {
+    .custom-cursor-active * {
       cursor: none !important;
     }
   }
