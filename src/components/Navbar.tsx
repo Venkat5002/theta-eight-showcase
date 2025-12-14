@@ -4,6 +4,8 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Menu, X, Sparkles } from "lucide-react";
 import MagneticButton from "@/components/effects/MagneticButton";
+import ThemeToggle from "@/components/ThemeToggle";
+import { siteConfig, navLinks } from "@/config/portfolio";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -31,13 +33,6 @@ const Navbar = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  const navItems = [
-    { label: "Experience", href: "#experience" },
-    { label: "Skills", href: "#skills" },
-    { label: "Projects", href: "#projects" },
-    { label: "Contact", href: "#contact" },
-  ];
 
   return (
     <motion.nav
@@ -68,7 +63,7 @@ const Navbar = () => {
                 {"{ Dev }"}
               </Badge>
               <span className="font-bold text-xl">
-                <span className="bg-gradient-primary bg-clip-text text-transparent">Venkat</span>
+                <span className="bg-gradient-primary bg-clip-text text-transparent">{siteConfig.name}</span>
                 <motion.span
                   className="text-accent"
                   animate={{ opacity: [1, 0.5, 1] }}
@@ -82,7 +77,7 @@ const Navbar = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-1">
-            {navItems.map((item, index) => (
+            {navLinks.map((item, index) => (
               <MagneticButton key={item.label} strength={0.3}>
                 <motion.a
                   href={item.href}
@@ -108,8 +103,9 @@ const Navbar = () => {
             ))}
           </div>
 
-          {/* CTA Button */}
-          <div className="hidden md:block">
+          {/* Theme Toggle & CTA Button */}
+          <div className="hidden md:flex items-center gap-3">
+            <ThemeToggle />
             <MagneticButton>
               <motion.div
                 initial={{ opacity: 0, scale: 0.8 }}
@@ -133,39 +129,42 @@ const Navbar = () => {
             </MagneticButton>
           </div>
 
-          {/* Mobile Menu Button */}
-          <motion.div className="md:hidden" whileTap={{ scale: 0.95 }}>
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="relative"
-            >
-              <AnimatePresence mode="wait">
-                {isMobileMenuOpen ? (
-                  <motion.div
-                    key="close"
-                    initial={{ rotate: -90, opacity: 0 }}
-                    animate={{ rotate: 0, opacity: 1 }}
-                    exit={{ rotate: 90, opacity: 0 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <X className="w-5 h-5" />
-                  </motion.div>
-                ) : (
-                  <motion.div
-                    key="menu"
-                    initial={{ rotate: 90, opacity: 0 }}
-                    animate={{ rotate: 0, opacity: 1 }}
-                    exit={{ rotate: -90, opacity: 0 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <Menu className="w-5 h-5" />
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </Button>
-          </motion.div>
+          {/* Mobile: Theme Toggle & Menu Button */}
+          <div className="flex md:hidden items-center gap-2">
+            <ThemeToggle />
+            <motion.div whileTap={{ scale: 0.95 }}>
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                className="relative"
+              >
+                <AnimatePresence mode="wait">
+                  {isMobileMenuOpen ? (
+                    <motion.div
+                      key="close"
+                      initial={{ rotate: -90, opacity: 0 }}
+                      animate={{ rotate: 0, opacity: 1 }}
+                      exit={{ rotate: 90, opacity: 0 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <X className="w-5 h-5" />
+                    </motion.div>
+                  ) : (
+                    <motion.div
+                      key="menu"
+                      initial={{ rotate: 90, opacity: 0 }}
+                      animate={{ rotate: 0, opacity: 1 }}
+                      exit={{ rotate: -90, opacity: 0 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <Menu className="w-5 h-5" />
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </Button>
+            </motion.div>
+          </div>
         </div>
 
         {/* Mobile Menu */}
@@ -179,7 +178,7 @@ const Navbar = () => {
               className="md:hidden overflow-hidden bg-background/95 backdrop-blur-xl border-t border-border/50 rounded-b-2xl"
             >
               <div className="py-4 space-y-1">
-                {navItems.map((item, index) => (
+                {navLinks.map((item, index) => (
                   <motion.a
                     key={item.label}
                     href={item.href}
