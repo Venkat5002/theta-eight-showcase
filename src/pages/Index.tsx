@@ -8,17 +8,14 @@ import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import AIAssistant from "@/components/AIAssistant";
 import ParticleField from "@/components/effects/ParticleField";
-import CustomCursor from "@/components/effects/CustomCursor";
 import WaveBackground from "@/components/effects/WaveBackground";
 import SEOHead from "@/components/SEOHead";
-import { siteConfig } from "@/config/portfolio";
 
 const Index = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Simulate loading for smooth entrance
-    const timer = setTimeout(() => setIsLoading(false), 800);
+    const timer = setTimeout(() => setIsLoading(false), 600);
     return () => clearTimeout(timer);
   }, []);
 
@@ -26,13 +23,11 @@ const Index = () => {
     return (
       <div className="fixed inset-0 bg-background flex items-center justify-center z-50">
         <div className="flex flex-col items-center gap-4">
-          <div className="relative w-16 h-16">
-            <div className="absolute inset-0 border-4 border-accent/20 rounded-full" />
-            <div className="absolute inset-0 border-4 border-transparent border-t-accent rounded-full animate-spin" />
+          <div className="relative w-12 h-12">
+            <div className="absolute inset-0 border-2 border-accent/20 rounded-full" />
+            <div className="absolute inset-0 border-2 border-transparent border-t-accent rounded-full animate-spin" />
           </div>
-          <p className="text-muted-foreground font-mono text-sm animate-pulse">
-            Loading experience...
-          </p>
+          <p className="text-muted-foreground text-sm">Loading...</p>
         </div>
       </div>
     );
@@ -40,18 +35,10 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background overflow-x-hidden">
-      {/* SEO structured data */}
       <SEOHead />
       
-      {/* Custom cursor - hidden on mobile/tablet */}
-      <div className="hidden lg:block">
-        <CustomCursor />
-      </div>
-      
-      {/* Particle background */}
+      {/* Subtle backgrounds */}
       <ParticleField />
-      
-      {/* 3D Wave background */}
       <WaveBackground />
       
       <Navbar />

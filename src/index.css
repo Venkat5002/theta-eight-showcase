@@ -140,12 +140,7 @@
     font-family: 'JetBrains Mono', monospace;
   }
 
-  /* Custom cursor styling - native cursor hidden only when custom cursor is visible */
-  @media (min-width: 1024px) {
-    .custom-cursor-active * {
-      cursor: none !important;
-    }
-  }
+  /* Standard cursor restored - no custom cursor effects */
 
   /* Selection styling */
   ::selection {
