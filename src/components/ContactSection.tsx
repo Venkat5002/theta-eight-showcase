@@ -3,12 +3,17 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Github, Linkedin, Mail, MapPin, Send } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
+import { Github, Linkedin, Mail, MapPin, Send, Phone, Download, Clock } from "lucide-react";
+import { siteConfig } from "@/config/portfolio";
 
 const ContactSection = () => {
   return (
-    <section className="py-20">
-      <div className="container mx-auto px-6">
+    <section id="contact" className="py-20 relative">
+      {/* Background */}
+      <div className="absolute inset-0 bg-gradient-to-b from-muted/30 via-transparent to-primary/5 pointer-events-none" />
+      
+      <div className="section-container relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -16,11 +21,12 @@ const ContactSection = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl font-bold text-foreground mb-3">
-            Get in Touch
+          <Badge variant="outline" className="mb-4">Contact</Badge>
+          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-3">
+            Let's Connect
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            I'm currently looking for internship opportunities. Feel free to reach out!
+            I'm actively looking for internship opportunities. Feel free to reach out!
           </p>
         </motion.div>
 
@@ -30,78 +36,102 @@ const ContactSection = () => {
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.1 }}
+            transition={{ duration: 0.5 }}
             className="lg:col-span-2 space-y-4"
           >
-            <Card>
-              <CardHeader>
+            {/* Availability Card */}
+            <Card className="bg-gradient-to-br from-primary to-[hsl(var(--gradient-end))] text-primary-foreground border-0 shadow-lg overflow-hidden">
+              <CardContent className="p-6">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse" />
+                  <span className="font-semibold text-lg">{siteConfig.availability.message}</span>
+                </div>
+                <p className="text-primary-foreground/80 text-sm mb-4">
+                  {siteConfig.availability.opportunityType}
+                </p>
+                <Button variant="secondary" size="sm" asChild>
+                  <a href="/resume.pdf" download="V_Venkata_Rupin_Resume.pdf">
+                    <Download className="w-4 h-4 mr-2" />
+                    Download Resume
+                  </a>
+                </Button>
+              </CardContent>
+            </Card>
+
+            {/* Contact Details */}
+            <Card className="glass-card">
+              <CardHeader className="pb-3">
                 <CardTitle className="text-lg">Contact Information</CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
-                    <Mail className="w-5 h-5 text-primary" />
-                  </div>
-                  <div>
-                    <p className="text-sm text-muted-foreground">Email</p>
-                    <p className="font-medium text-foreground text-sm">
-                      venkat@example.com
-                    </p>
-                  </div>
-                </div>
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
-                    <MapPin className="w-5 h-5 text-primary" />
-                  </div>
-                  <div>
-                    <p className="text-sm text-muted-foreground">Location</p>
-                    <p className="font-medium text-foreground text-sm">
-                      Hyderabad, India
-                    </p>
-                  </div>
-                </div>
+                {[
+                  { icon: Mail, label: "Email", value: siteConfig.contact.email, href: `mailto:${siteConfig.contact.email}` },
+                  { icon: Phone, label: "Phone", value: siteConfig.contact.phone, href: `tel:${siteConfig.contact.phone}` },
+                  { icon: MapPin, label: "Location", value: siteConfig.contact.location },
+                ].map((item, index) => (
+                  <motion.div
+                    key={item.label}
+                    initial={{ opacity: 0, x: -10 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1 }}
+                    className="flex items-center gap-3"
+                  >
+                    <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <item.icon className="w-5 h-5 text-primary" />
+                    </div>
+                    <div className="min-w-0">
+                      <p className="text-xs text-muted-foreground">{item.label}</p>
+                      {item.href ? (
+                        <a
+                          href={item.href}
+                          className="font-medium text-foreground text-sm hover:text-primary transition-colors truncate block"
+                        >
+                          {item.value}
+                        </a>
+                      ) : (
+                        <p className="font-medium text-foreground text-sm truncate">{item.value}</p>
+                      )}
+                    </div>
+                  </motion.div>
+                ))}
               </CardContent>
             </Card>
 
-            <Card>
+            {/* Social Links */}
+            <Card className="glass-card">
               <CardContent className="p-4">
-                <p className="text-sm font-medium text-foreground mb-3">
-                  Connect with me
-                </p>
+                <p className="text-sm font-medium text-foreground mb-3">Connect with me</p>
                 <div className="flex gap-2">
-                  <Button variant="outline" size="icon" asChild>
+                  <Button variant="outline" size="icon" className="hover:bg-primary/10 hover:text-primary hover:border-primary/30" asChild>
                     <a
-                      href="https://github.com/Venkat5002"
+                      href={siteConfig.social.github}
                       target="_blank"
                       rel="noopener noreferrer"
+                      aria-label="GitHub"
                     >
-                      <Github className="w-4 h-4" />
+                      <Github className="w-5 h-5" />
                     </a>
                   </Button>
-                  <Button variant="outline" size="icon" asChild>
+                  <Button variant="outline" size="icon" className="hover:bg-primary/10 hover:text-primary hover:border-primary/30" asChild>
                     <a
-                      href="https://www.linkedin.com/in/venkatarupin/"
+                      href={siteConfig.social.linkedin}
                       target="_blank"
                       rel="noopener noreferrer"
+                      aria-label="LinkedIn"
                     >
-                      <Linkedin className="w-4 h-4" />
+                      <Linkedin className="w-5 h-5" />
+                    </a>
+                  </Button>
+                  <Button variant="outline" size="icon" className="hover:bg-primary/10 hover:text-primary hover:border-primary/30" asChild>
+                    <a
+                      href={`mailto:${siteConfig.contact.email}`}
+                      aria-label="Email"
+                    >
+                      <Mail className="w-5 h-5" />
                     </a>
                   </Button>
                 </div>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-primary text-primary-foreground">
-              <CardContent className="p-4 text-center">
-                <div className="flex items-center justify-center gap-2 mb-2">
-                  <span className="w-2 h-2 bg-green-400 rounded-full"></span>
-                  <span className="text-sm font-medium">
-                    Open to Opportunities
-                  </span>
-                </div>
-                <p className="text-xs opacity-90">
-                  Actively seeking internships for Summer 2025
-                </p>
               </CardContent>
             </Card>
           </motion.div>
@@ -111,28 +141,64 @@ const ContactSection = () => {
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
             className="lg:col-span-3"
           >
-            <Card>
-              <CardHeader>
-                <CardTitle className="text-lg">Send a Message</CardTitle>
+            <Card className="glass-card h-full">
+              <CardHeader className="pb-4">
+                <CardTitle className="text-lg flex items-center gap-2">
+                  <Send className="w-5 h-5 text-primary" />
+                  Send a Message
+                </CardTitle>
+                <p className="text-sm text-muted-foreground">
+                  Have a question or opportunity? I'd love to hear from you.
+                </p>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <Input placeholder="First name" />
-                  <Input placeholder="Last name" />
+                  <div className="space-y-2">
+                    <label htmlFor="firstName" className="text-sm font-medium text-foreground">
+                      First Name
+                    </label>
+                    <Input id="firstName" placeholder="John" />
+                  </div>
+                  <div className="space-y-2">
+                    <label htmlFor="lastName" className="text-sm font-medium text-foreground">
+                      Last Name
+                    </label>
+                    <Input id="lastName" placeholder="Doe" />
+                  </div>
                 </div>
-                <Input type="email" placeholder="Email address" />
-                <Input placeholder="Subject" />
-                <Textarea
-                  placeholder="Your message..."
-                  className="min-h-[120px]"
-                />
-                <Button className="w-full">
+                <div className="space-y-2">
+                  <label htmlFor="email" className="text-sm font-medium text-foreground">
+                    Email Address
+                  </label>
+                  <Input id="email" type="email" placeholder="john@company.com" />
+                </div>
+                <div className="space-y-2">
+                  <label htmlFor="subject" className="text-sm font-medium text-foreground">
+                    Subject
+                  </label>
+                  <Input id="subject" placeholder="Internship Opportunity" />
+                </div>
+                <div className="space-y-2">
+                  <label htmlFor="message" className="text-sm font-medium text-foreground">
+                    Message
+                  </label>
+                  <Textarea
+                    id="message"
+                    placeholder="Your message here..."
+                    className="min-h-[120px] resize-none"
+                  />
+                </div>
+                <Button className="w-full btn-glow" size="lg">
                   <Send className="w-4 h-4 mr-2" />
                   Send Message
                 </Button>
+                <p className="text-xs text-center text-muted-foreground flex items-center justify-center gap-1">
+                  <Clock className="w-3 h-3" />
+                  Usually responds within 24 hours
+                </p>
               </CardContent>
             </Card>
           </motion.div>

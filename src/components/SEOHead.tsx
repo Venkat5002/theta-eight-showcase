@@ -7,7 +7,7 @@ const SEOHead = () => {
     const structuredData = {
       "@context": "https://schema.org",
       "@type": "Person",
-      name: siteConfig.fullName,
+      name: siteConfig.name,
       jobTitle: siteConfig.title,
       description: siteConfig.tagline,
       url: window.location.origin,
