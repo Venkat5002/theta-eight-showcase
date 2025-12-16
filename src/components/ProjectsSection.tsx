@@ -1,48 +1,17 @@
 import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { ExternalLink, Github } from "lucide-react";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { ExternalLink, Github, Calendar, ArrowRight, Lightbulb, Code2 } from "lucide-react";
+import { projectsConfig, siteConfig } from "@/config/portfolio";
 
 const ProjectsSection = () => {
-  const projects = [
-    {
-      title: "E-Commerce Platform",
-      description:
-        "Full-stack e-commerce website with shopping cart functionality, user authentication, and payment integration. Built as part of an internship project.",
-      technologies: ["React", "Node.js", "MongoDB", "Express.js"],
-      github: "https://github.com/Venkat5002/codsoft-task-1-and-task-2",
-      type: "Full Stack",
-    },
-    {
-      title: "Weather Dashboard",
-      description:
-        "Interactive weather application that displays real-time weather data and 7-day forecasts using external APIs. Features responsive design and location-based search.",
-      technologies: ["JavaScript", "HTML", "CSS", "Weather API"],
-      github: "https://github.com/Venkat5002/DSA8",
-      type: "Frontend",
-    },
-    {
-      title: "Portfolio Website",
-      description:
-        "Modern, responsive portfolio website built with React and Tailwind CSS. Features dark/light mode toggle and clean, professional design.",
-      technologies: ["React", "TypeScript", "Tailwind CSS", "Vite"],
-      github: "https://github.com/Venkat5002/repo",
-      type: "Frontend",
-    },
-    {
-      title: "DSA Problem Solutions",
-      description:
-        "Comprehensive collection of Data Structures and Algorithms implementations in Java. Includes solutions to common interview problems and optimization techniques.",
-      technologies: ["Java", "Data Structures", "Algorithms"],
-      github: "https://github.com/Venkat5002/DSA8",
-      type: "Programming",
-    },
-  ];
-
   return (
-    <section className="py-20 bg-muted/30">
-      <div className="container mx-auto px-6">
+    <section id="projects" className="py-20 relative">
+      {/* Background */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-muted/30 to-transparent pointer-events-none" />
+      
+      <div className="section-container relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -50,60 +19,98 @@ const ProjectsSection = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl font-bold text-foreground mb-3">Projects</h2>
+          <Badge variant="outline" className="mb-4">Portfolio</Badge>
+          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-3">
+            Featured Projects
+          </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            A selection of projects I've worked on during my coursework and personal learning
+            Real-world applications I've built during my academic journey
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-          {projects.map((project, index) => (
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          {projectsConfig.map((project, index) => (
             <motion.div
               key={project.title}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="h-full"
             >
-              <Card className="h-full flex flex-col hover:shadow-md transition-shadow">
-                <CardHeader>
-                  <div className="flex items-start justify-between gap-2">
-                    <CardTitle className="text-lg text-foreground">
-                      {project.title}
-                    </CardTitle>
-                    <Badge variant="outline" className="text-xs flex-shrink-0">
-                      {project.type}
+              <Card className={`glass-card hover-lift h-full flex flex-col overflow-hidden group`}>
+                {/* Gradient top bar */}
+                <div className={`h-1.5 bg-gradient-to-r ${project.gradient}`} />
+                
+                <CardHeader className="pb-3">
+                  <div className="flex items-start justify-between gap-2 mb-2">
+                    <Badge variant="secondary" className="text-xs font-medium">
+                      {project.category}
                     </Badge>
+                    <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
+                      <Calendar className="w-3 h-3" />
+                      {project.duration}
+                    </div>
                   </div>
+                  <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">
+                    {project.title}
+                  </h3>
                 </CardHeader>
+
                 <CardContent className="flex-1 flex flex-col">
-                  <p className="text-sm text-muted-foreground mb-4 flex-1">
+                  <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
                     {project.description}
                   </p>
-                  <div className="space-y-4">
+
+                  {/* Problem/Solution highlight */}
+                  <div className="space-y-2 mb-4 flex-1">
+                    <div className="p-3 bg-muted/50 rounded-lg">
+                      <div className="flex items-start gap-2">
+                        <Lightbulb className="w-4 h-4 text-amber-500 mt-0.5 flex-shrink-0" />
+                        <div>
+                          <span className="text-xs font-medium text-muted-foreground">Problem</span>
+                          <p className="text-xs text-foreground">{project.problem}</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="p-3 bg-primary/5 rounded-lg">
+                      <div className="flex items-start gap-2">
+                        <Code2 className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
+                        <div>
+                          <span className="text-xs font-medium text-muted-foreground">Solution</span>
+                          <p className="text-xs text-foreground">{project.solution}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Tech stack */}
+                  <div className="mb-4">
                     <div className="flex flex-wrap gap-1.5">
                       {project.technologies.map((tech) => (
                         <Badge
                           key={tech}
-                          variant="secondary"
-                          className="text-xs font-normal"
+                          variant="outline"
+                          className="text-xs font-normal px-2 py-0.5"
                         >
                           {tech}
                         </Badge>
                       ))}
                     </div>
-                    <div className="flex gap-2">
-                      <Button variant="outline" size="sm" asChild>
-                        <a
-                          href={project.github}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          <Github className="w-4 h-4 mr-1" />
-                          Code
-                        </a>
-                      </Button>
-                    </div>
+                  </div>
+
+                  {/* Action buttons */}
+                  <div className="flex gap-2 mt-auto pt-2">
+                    <Button variant="outline" size="sm" className="flex-1" asChild>
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <Github className="w-4 h-4 mr-1.5" />
+                        View Code
+                      </a>
+                    </Button>
                   </div>
                 </CardContent>
               </Card>
@@ -117,17 +124,17 @@ const ProjectsSection = () => {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.4 }}
-          className="text-center mt-10"
+          className="text-center mt-12"
         >
-          <Button variant="outline" asChild>
+          <Button size="lg" variant="outline" className="group" asChild>
             <a
-              href="https://github.com/Venkat5002"
+              href={siteConfig.social.github}
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Github className="w-4 h-4 mr-2" />
-              View All Projects on GitHub
-              <ExternalLink className="w-3 h-3 ml-1" />
+              <Github className="w-5 h-5 mr-2" />
+              Explore All Projects on GitHub
+              <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
             </a>
           </Button>
         </motion.div>

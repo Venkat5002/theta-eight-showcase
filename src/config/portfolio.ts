@@ -1,31 +1,24 @@
 // ============================================
 // PORTFOLIO CONFIGURATION FILE
-// Edit this file to customize your portfolio
+// Personalized from V Venkata Rupin's Resume
 // ============================================
 
 export const siteConfig = {
   // Personal Information
-  name: "Venkat",
-  fullName: "Venigalla Venkata Rupin",
-  title: "Full Stack Developer",
-  tagline: "Crafting exceptional digital experiences through elegant code and innovative design.",
+  name: "V Venkata Rupin",
+  shortName: "Rupin",
+  title: "3rd Year B.Tech Student",
+  subtitle: "Aspiring Software Engineer",
+  tagline: "Passionate about building efficient software and practical AI applications",
   
-  // Roles for typewriter effect
-  roles: [
-    "Full Stack Developer",
-    "UI/UX Enthusiast", 
-    "Problem Solver",
-    "Tech Innovator",
-  ],
-
   // Profile image
-  avatar: "/src/assets/developer-portrait.jpg",
+  avatar: "/src/assets/profile-photo.jpg",
 
   // Contact Information
   contact: {
-    email: "venkat@example.com",
-    phone: "",
-    location: "India",
+    email: "venigallavenkatarupin@gmail.com",
+    phone: "+91-7671800789",
+    location: "Hyderabad, India",
   },
 
   // Social Links
@@ -39,178 +32,143 @@ export const siteConfig = {
   // Education
   education: {
     institution: "Malla Reddy University",
-    degree: "B.Tech in Computer Science Engineering",
-    year: "2023 - Present",
-    location: "India",
+    degree: "B.Tech in Computer Science & Engineering",
+    year: "2023 - 2027 (Expected)",
+    location: "Hyderabad, India",
+    cgpa: "8.82",
   },
 
-  // Stats displayed in hero/experience
+  // Previous Education
+  previousEducation: [
+    {
+      degree: "Intermediate",
+      specialization: "Physics, Chemistry & Mathematics",
+      institution: "Narayana Junior College",
+      year: "2023",
+      score: "7.74",
+    },
+    {
+      degree: "CBSE",
+      institution: "Delhi Public School",
+      year: "2021",
+      score: "6.70",
+    },
+  ],
+
+  // Stats displayed in hero
   stats: {
-    yearLabel: "2nd",
-    yearDescription: "Year CSE",
-    projectCount: "6+",
-    projectLabel: "Projects",
+    cgpa: "8.82",
+    projects: "3+",
+    certifications: "3+",
+    year: "3rd Year",
   },
 
   // Availability status
   availability: {
     isAvailable: true,
-    message: "Available for hire",
-    opportunityType: "Open to internships and projects",
+    message: "Open to Opportunities",
+    opportunityType: "Actively seeking internships for Summer 2025",
   },
 };
 
-// Skills Configuration
+// Skills Configuration - From Resume
 export const skillsConfig = {
-  categories: [
-    {
-      title: "Frontend Development",
-      icon: "code",
-      color: "text-blue-500",
-      bgColor: "bg-blue-500/10",
-      skills: [
-        { name: "React", level: 85 },
-        { name: "JavaScript", level: 90 },
-        { name: "HTML/CSS", level: 95 },
-        { name: "Node.js", level: 75 },
-      ],
-    },
-    {
-      title: "Programming Languages",
-      icon: "layers",
-      color: "text-purple-500",
-      bgColor: "bg-purple-500/10",
-      skills: [
-        { name: "Java", level: 90 },
-        { name: "JavaScript", level: 85 },
-        { name: "Python", level: 80 },
-        { name: "C/C++", level: 75 },
-      ],
-    },
-    {
-      title: "Database & Backend",
-      icon: "database",
-      color: "text-green-500",
-      bgColor: "bg-green-500/10",
-      skills: [
-        { name: "MongoDB", level: 80 },
-        { name: "PostgreSQL", level: 75 },
-        { name: "Node.js", level: 75 },
-        { name: "Express.js", level: 70 },
-      ],
-    },
-    {
-      title: "Tools & Technologies",
-      icon: "wrench",
-      color: "text-orange-500",
-      bgColor: "bg-orange-500/10",
-      skills: [
-        { name: "Git/GitHub", level: 85 },
-        { name: "VS Code", level: 90 },
-        { name: "Netlify/Vercel", level: 70 },
-        { name: "Linux", level: 65 },
-      ],
-    },
-  ],
-  certifications: [
-    "Computer Science Engineering Student",
-    "MRU Training Program Graduate",
+  languages: ["Python", "Java", "C++", "R", "MySQL"],
+  tools: ["Jupyter Notebook", "CursorAI", "VS Code", "GitHub", "Power BI", "Spring Tools"],
+  frameworks: ["React", "HTML", "CSS", "JavaScript", "JSON"],
+  databases: ["MySQL"],
+  
+  // Core competencies
+  competencies: [
     "Full Stack Development",
+    "Problem Solving",
     "Data Structures & Algorithms",
-  ],
-  techStack: [
-    "Java",
-    "React",
-    "JavaScript",
-    "MongoDB",
-    "Node.js",
-    "PostgreSQL",
-    "HTML",
-    "CSS",
-    "Git",
-    "VS Code",
+    "Object-Oriented Programming",
+    "Database Management",
+    "Version Control",
+    "AI/ML Applications",
+    "RESTful APIs",
   ],
 };
 
-// Projects Configuration
+// Projects Configuration - From Resume
 export const projectsConfig = [
   {
-    title: "Weather Dashboard Application",
-    description: "Interactive weather dashboard with real-time weather data, 7-day forecasts, and location-based weather tracking.",
-    image: "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=500&h=300&fit=crop",
-    technologies: ["JavaScript", "HTML", "CSS", "Weather API", "Chart.js"],
-    category: "Frontend",
-    status: "Production" as const,
-    highlights: ["API Integration", "Real-time Data", "Interactive Charts"],
-    github: "https://github.com/Venkat5002/DSA8",
-    demo: "",
-    gradient: "from-blue-500/20 to-cyan-500/20",
+    title: "Book Worm – E-Book Maker",
+    description: "Developed a full-stack e-book creation platform with seamless reading and publishing experience. Enabled user content formatting, publishing, and editing with intuitive UI and backend services.",
+    problem: "Needed a platform for users to create, format, and publish e-books easily",
+    solution: "Built a complete publishing platform with user-friendly editor and backend integration",
+    technologies: ["HTML", "CSS", "JavaScript", "Java", "MySQL"],
+    category: "Full Stack",
+    duration: "Sept–Oct 2024",
+    github: "https://github.com/Venkat5002",
+    gradient: "from-blue-500/20 to-indigo-500/20",
   },
   {
-    title: "Modern Developer Portfolio",
-    description: "Responsive portfolio website built with React, TypeScript, and Tailwind CSS. Features dark/light mode and smooth animations.",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&h=300&fit=crop",
-    technologies: ["React", "TypeScript", "Tailwind CSS", "Vite"],
+    title: "Pack Your Bags – Travel Agency",
+    description: "Designed a travel planner offering personalized trip suggestions and affordable packages. Implemented itinerary creation, booking, and user login with a focus on real-time efficiency.",
+    problem: "Travelers needed a one-stop platform for planning and booking trips",
+    solution: "Created a comprehensive travel platform with personalized recommendations",
+    technologies: ["Java", "MySQL"],
+    category: "Full Stack",
+    duration: "Jan–Mar 2024",
+    github: "https://github.com/Venkat5002",
+    gradient: "from-emerald-500/20 to-teal-500/20",
+  },
+  {
+    title: "GadgetCore – E-Commerce Platform",
+    description: "Developed an e-commerce platform for selling earbuds and audio accessories with responsive UI. Added product filters, cart functionality, and React routing for dynamic user experience.",
+    problem: "Needed a modern e-commerce solution for audio gadgets",
+    solution: "Built a feature-rich shopping platform with filters and cart system",
+    technologies: ["HTML", "CSS", "JavaScript", "React", "JSON"],
     category: "Frontend",
-    status: "Production" as const,
-    highlights: ["Responsive Design", "Modern UI/UX", "Fast Performance"],
-    github: "https://github.com/Venkat5002/repo",
-    demo: "",
+    duration: "Mar–Apr 2025",
+    github: "https://github.com/Venkat5002",
     gradient: "from-purple-500/20 to-pink-500/20",
   },
+];
+
+// Certifications - From Resume
+export const certificationsConfig = [
   {
-    title: "E-Commerce Platform",
-    description: "Comprehensive platform featuring shopping cart, payments, and project management with task tracking.",
-    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=500&h=300&fit=crop",
-    technologies: ["React", "Node.js", "MongoDB", "PostgreSQL"],
-    category: "Full Stack",
-    status: "Production" as const,
-    highlights: ["E-Commerce", "Task Management", "Payment Integration"],
-    github: "https://github.com/Venkat5002/codsoft-task-1-and-task-2",
-    demo: "",
-    gradient: "from-green-500/20 to-emerald-500/20",
+    title: "Graphic Design Essentials",
+    issuer: "Canva",
+    date: "June 27, 2025",
+    highlights: [
+      "Visual design principles: layout, alignment, balance, contrast",
+      "Typography, colour theory, and composition fundamentals",
+    ],
   },
   {
-    title: "Data Structures & Algorithms",
-    description: "Comprehensive DSA implementations demonstrating algorithmic thinking and programming proficiency.",
-    image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=500&h=300&fit=crop",
-    technologies: ["Java", "Algorithms", "Data Structures"],
-    category: "Programming",
-    status: "Development" as const,
-    highlights: ["Problem Solving", "Java Programming", "Algorithm Design"],
-    github: "https://github.com/Venkat5002/DSA8",
-    demo: "",
-    gradient: "from-orange-500/20 to-yellow-500/20",
+    title: "Mastering Generative AI and ChatGPT",
+    issuer: "GeeksforGeeks",
+    date: "July 8, 2025",
+    highlights: [
+      "5-week course on prompt engineering, LLMs, and generative AI",
+      "Built AI-powered tools using ChatGPT APIs",
+    ],
   },
   {
-    title: "University Training Projects",
-    description: "Collection of coding programs completed during training at Malla Reddy University.",
-    image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=500&h=300&fit=crop",
-    technologies: ["JavaScript", "HTML", "CSS", "Java"],
-    category: "Academic",
-    status: "Production" as const,
-    highlights: ["Academic Projects", "Learning Portfolio", "Training Program"],
-    github: "https://github.com/Venkat5002/Training-01---2311CS010689-",
-    demo: "",
-    gradient: "from-indigo-500/20 to-blue-500/20",
+    title: "MongoDB Developer's Toolkit",
+    issuer: "GeeksforGeeks",
+    date: "July 26, 2025",
+    highlights: [
+      "Building, querying, and scaling MongoDB applications",
+      "Aggregation pipelines, indexing, and performance tuning",
+    ],
   },
-  {
-    title: "Java Programming Portfolio",
-    description: "Java programming assignments focusing on data structures from 2nd year 1st semester.",
-    image: "https://images.unsplash.com/photo-1517180102446-f3ece451e9d8?w=500&h=300&fit=crop",
-    technologies: ["Java", "Data Structures", "OOP"],
-    category: "Academic",
-    status: "Production" as const,
-    highlights: ["Object-Oriented", "Data Structures", "Java Expertise"],
-    github: "https://github.com/Venkat5002/java-programming-done-in-2nd-year-1st-semester-",
-    demo: "",
-    gradient: "from-red-500/20 to-orange-500/20",
-  },
+];
+
+// Extra-curricular achievements
+export const achievementsConfig = [
+  "Cambridge English Empower B2 Level Certification",
+  "Certificate of Participation for Technical Presentation among 50+ teams",
+  "Secured 4th place in institute-level Elocution competition",
 ];
 
 // Navigation Links
 export const navLinks = [
-  { label: "Experience", href: "#experience" },
+  { label: "About", href: "#about" },
   { label: "Skills", href: "#skills" },
   { label: "Projects", href: "#projects" },
   { label: "Contact", href: "#contact" },
@@ -218,16 +176,6 @@ export const navLinks = [
 
 // Footer Links
 export const footerConfig = {
-  quickLinks: ["Experience", "Skills", "Projects", "Contact"],
-  services: ["Web Development", "Full Stack", "UI/UX", "APIs"],
-};
-
-// Theme Colors (for future theme customization)
-export const themeColors = {
-  presets: [
-    { name: "Ocean", primary: "225 70% 25%", accent: "175 85% 45%" },
-    { name: "Sunset", primary: "15 80% 50%", accent: "45 90% 55%" },
-    { name: "Forest", primary: "150 60% 30%", accent: "120 70% 45%" },
-    { name: "Purple", primary: "270 70% 50%", accent: "280 80% 60%" },
-  ],
+  quickLinks: ["About", "Skills", "Projects", "Contact"],
+  services: ["Full Stack Development", "Web Development", "UI/UX Design", "API Development"],
 };
