@@ -166,7 +166,6 @@ export const achievementsConfig = [
   "Secured 4th place in institute-level Elocution competition",
 ];
 
-// Navigation Links
 export const navLinks = [
   { label: "About", href: "#about" },
   { label: "Skills", href: "#skills" },
