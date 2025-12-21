@@ -2,25 +2,50 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="icon" type="image/png" href="./favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Venigalla Venkata Rupin | B.Tech CSE Student</title>
-    <meta name="description" content="3rd year B.Tech Computer Science Engineering student at Malla Reddy University. Aspiring software engineer with experience in full-stack development, Java, and React." />
-    <meta name="author" content="Venigalla Venkata Rupin" />
-    <meta name="keywords" content="B.Tech Student, Computer Science, Software Engineer, Java, React, Full Stack, Portfolio, Hyderabad" />
+    <title>V Venkata Rupin | B.Tech CSE Student & Aspiring Software Engineer</title>
+    <meta name="description" content="3rd year B.Tech Computer Science Engineering student at Malla Reddy University (CGPA 8.82). Aspiring software engineer with experience in full-stack development, Java, React, and AI applications. Open to internship opportunities." />
+    <meta name="author" content="V Venkata Rupin" />
+    <meta name="keywords" content="V Venkata Rupin, B.Tech Student, Computer Science, Software Engineer, Java, React, Full Stack Developer, Portfolio, Hyderabad, Malla Reddy University, Internship" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://venkat5002.github.io/" />
 
-    <meta property="og:title" content="Venigalla Venkata Rupin | B.Tech CSE Student" />
-    <meta property="og:description" content="3rd year B.Tech CSE student seeking internship opportunities in software development." />
+    <!-- Open Graph -->
+    <meta property="og:title" content="V Venkata Rupin | B.Tech CSE Student Portfolio" />
+    <meta property="og:description" content="3rd year B.Tech CSE student at Malla Reddy University seeking internship opportunities in software development." />
     <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://venkat5002.github.io/" />
+    <meta property="og:site_name" content="V Venkata Rupin Portfolio" />
 
+    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="V Venkata Rupin | B.Tech CSE Student" />
+    <meta name="twitter:description" content="Aspiring software engineer with experience in full-stack development." />
+
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#2563eb" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    
+    <!-- GitHub Pages SPA redirect handling -->
+    <script type="text/javascript">
+      (function(l) {
+        if (l.search[1] === '/' ) {
+          var decoded = l.search.slice(1).split('&').map(function(s) { 
+            return s.replace(/~and~/g, '&')
+          }).join('?');
+          window.history.replaceState(null, null,
+            l.pathname.slice(0, -1) + decoded + l.hash
+          );
+        }
+      }(window.location))
+    </script>
   </head>
 
   <body>
     <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+    <script type="module" src="./src/main.tsx"></script>
   </body>
 </html>

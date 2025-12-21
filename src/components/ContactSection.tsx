@@ -50,7 +50,7 @@ const ContactSection = () => {
                   {siteConfig.availability.opportunityType}
                 </p>
                 <Button variant="secondary" size="sm" asChild>
-                  <a href="/resume.pdf" download="V_Venkata_Rupin_Resume.pdf">
+                  <a href="./resume.pdf" download="V_Venkata_Rupin_Resume.pdf">
                     <Download className="w-4 h-4 mr-2" />
                     Download Resume
                   </a>

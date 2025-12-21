@@ -49,7 +49,7 @@ const Navbar = () => {
           <div className="hidden md:flex items-center gap-3">
             <ThemeToggle />
             <Button variant="outline" size="sm" asChild>
-              <a href="/resume.pdf" download="V_Venkata_Rupin_Resume.pdf">
+              <a href="./resume.pdf" download="V_Venkata_Rupin_Resume.pdf">
                 <Download className="w-4 h-4 mr-2" />
                 Resume
               </a>
@@ -89,7 +89,7 @@ const Navbar = () => {
               ))}
               <div className="px-4 pt-4 space-y-2 border-t border-border mt-2">
                 <Button variant="outline" className="w-full" asChild>
-                  <a href="/resume.pdf" download="V_Venkata_Rupin_Resume.pdf">
+                  <a href="./resume.pdf" download="V_Venkata_Rupin_Resume.pdf">
                     <Download className="w-4 h-4 mr-2" />
                     Resume
                   </a>

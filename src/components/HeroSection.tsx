@@ -90,7 +90,7 @@ const HeroSection = () => {
                 </a>
               </Button>
               <Button size="lg" variant="ghost" asChild>
-                <a href="/resume.pdf" download="V_Venkata_Rupin_Resume.pdf">
+                <a href="./resume.pdf" download="V_Venkata_Rupin_Resume.pdf">
                   <Download className="w-4 h-4 mr-2" />
                   Resume
                 </a>
@@ -151,8 +151,9 @@ const HeroSection = () => {
                 <div className="w-full h-full rounded-full overflow-hidden border-4 border-card shadow-2xl bg-card">
                   <img
                     src={profilePhoto}
-                    alt={siteConfig.name}
+                    alt={`${siteConfig.name} - B.Tech CSE Student at Malla Reddy University`}
                     className="w-full h-full object-cover"
+                    loading="eager"
                   />
                 </div>
                 
@@ -185,6 +186,7 @@ const HeroSection = () => {
           <a
             href="#about"
             className="flex flex-col items-center gap-2 text-muted-foreground hover:text-foreground transition-colors group"
+            aria-label="Scroll to About section"
           >
             <span className="text-sm font-medium">Scroll to explore</span>
             <ArrowDown className="w-5 h-5 animate-bounce group-hover:text-primary transition-colors" />
