@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import ExperienceSection from "@/components/ExperienceSection";
@@ -7,8 +8,24 @@ import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import AIAssistant from "@/components/AIAssistant";
 import SEOHead from "@/components/SEOHead";
+import LoadingSpinner from "@/components/LoadingSpinner";
 
 const Index = () => {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Brief loading state for initial render
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 500);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (isLoading) {
+    return <LoadingSpinner />;
+  }
+
   return (
     <div className="min-h-screen bg-background">
       <SEOHead />
