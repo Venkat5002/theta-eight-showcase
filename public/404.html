@@ -4,9 +4,18 @@
     <meta charset="UTF-8" />
     <title>Redirecting...</title>
     <script>
-      // Simple redirect to the main page with hash router
-      // GitHub Pages serves this for any 404, we redirect to the main SPA
-      window.location.replace(window.location.origin + window.location.pathname.split('/').slice(0, 2).join('/') + '/#/');
+      // Redirect any 404 to the main page with HashRouter
+      // Preserve the path as a hash fragment for SPA routing
+      var path = window.location.pathname;
+      var hash = window.location.hash;
+      var search = window.location.search;
+      
+      // Get the base path (for GitHub Pages subdirectory hosting)
+      var segments = path.split('/').filter(Boolean);
+      var basePath = segments.length > 0 ? '/' + segments[0] : '';
+      
+      // Redirect to base with hash
+      window.location.replace(window.location.origin + basePath + '/' + (hash || '#/'));
     </script>
   </head>
   <body>
