@@ -16,6 +16,16 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    const sectionId = href.replace('#', '');
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+    setIsMobileMenuOpen(false);
+  };
+
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -27,7 +37,7 @@ const Navbar = () => {
       <div className="section-container">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <a href="#" className="font-bold text-xl text-foreground hover:text-primary transition-colors">
+          <a href="#/" className="font-bold text-xl text-foreground hover:text-primary transition-colors">
             {siteConfig.shortName}<span className="text-primary">.</span>
           </a>
 
@@ -37,6 +47,7 @@ const Navbar = () => {
               <a
                 key={item.label}
                 href={item.href}
+                onClick={(e) => scrollToSection(e, item.href)}
                 className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors relative group"
               >
                 {item.label}
@@ -55,7 +66,7 @@ const Navbar = () => {
               </a>
             </Button>
             <Button size="sm" className="btn-glow" asChild>
-              <a href="#contact">Hire Me</a>
+              <a href="#contact" onClick={(e) => scrollToSection(e, '#contact')}>Hire Me</a>
             </Button>
           </div>
 
@@ -81,8 +92,8 @@ const Navbar = () => {
                 <a
                   key={item.label}
                   href={item.href}
+                  onClick={(e) => scrollToSection(e, item.href)}
                   className="px-4 py-2.5 text-foreground hover:bg-muted rounded-lg transition-colors font-medium"
-                  onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {item.label}
                 </a>
@@ -95,7 +106,7 @@ const Navbar = () => {
                   </a>
                 </Button>
                 <Button className="w-full" asChild>
-                  <a href="#contact" onClick={() => setIsMobileMenuOpen(false)}>
+                  <a href="#contact" onClick={(e) => scrollToSection(e, '#contact')}>
                     Hire Me
                   </a>
                 </Button>
