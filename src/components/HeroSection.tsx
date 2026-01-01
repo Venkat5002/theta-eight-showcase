@@ -1,11 +1,19 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Github, Linkedin, Mail, ArrowDown, Download, Phone, MapPin } from "lucide-react";
+import { Github, Linkedin, Mail, ArrowDown, Download, MapPin } from "lucide-react";
 import { siteConfig } from "@/config/portfolio";
 import profilePhoto from "@/assets/profile-photo.jpg";
 
 const HeroSection = () => {
+  const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, sectionId: string) => {
+    e.preventDefault();
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section className="min-h-screen flex items-center pt-20 pb-10 relative overflow-hidden">
       {/* Subtle background gradient */}
@@ -81,10 +89,10 @@ const HeroSection = () => {
               className="flex flex-wrap gap-3 pt-2"
             >
               <Button size="lg" className="btn-glow" asChild>
-                <a href="#projects">View My Work</a>
+                <a href="#projects" onClick={(e) => scrollToSection(e, 'projects')}>View My Work</a>
               </Button>
               <Button size="lg" variant="outline" asChild>
-                <a href="#contact">
+                <a href="#contact" onClick={(e) => scrollToSection(e, 'contact')}>
                   <Mail className="w-4 h-4 mr-2" />
                   Contact Me
                 </a>
@@ -185,6 +193,7 @@ const HeroSection = () => {
         >
           <a
             href="#about"
+            onClick={(e) => scrollToSection(e, 'experience')}
             className="flex flex-col items-center gap-2 text-muted-foreground hover:text-foreground transition-colors group"
             aria-label="Scroll to About section"
           >
