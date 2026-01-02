@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -6,8 +7,69 @@ import { Textarea } from "@/components/ui/textarea";
 import { Badge } from "@/components/ui/badge";
 import { Github, Linkedin, Mail, MapPin, Send, Phone, Download, Clock } from "lucide-react";
 import { siteConfig } from "@/config/portfolio";
+import { useToast } from "@/hooks/use-toast";
 
 const ContactSection = () => {
+  const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { id, value } = e.target;
+    setFormData(prev => ({ ...prev, [id]: value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    // Basic validation
+    if (!formData.firstName || !formData.email || !formData.message) {
+      toast({
+        title: "Missing fields",
+        description: "Please fill in all required fields.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    // Simulate sending (you can connect to an edge function later)
+    try {
+      // For now, open mailto with the form data
+      const mailtoLink = `mailto:${siteConfig.contact.email}?subject=${encodeURIComponent(formData.subject || "Portfolio Contact")}&body=${encodeURIComponent(`From: ${formData.firstName} ${formData.lastName}\nEmail: ${formData.email}\n\n${formData.message}`)}`;
+      window.open(mailtoLink, "_blank");
+      
+      toast({
+        title: "Email client opened!",
+        description: "Your default email app should open with your message.",
+      });
+      
+      // Reset form
+      setFormData({
+        firstName: "",
+        lastName: "",
+        email: "",
+        subject: "",
+        message: "",
+      });
+    } catch (error) {
+      toast({
+        title: "Something went wrong",
+        description: "Please try again or contact directly via email.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <section id="contact" className="py-20 relative">
       {/* Background */}
@@ -154,51 +216,84 @@ const ContactSection = () => {
                   Have a question or opportunity? I'd love to hear from you.
                 </p>
               </CardHeader>
-              <CardContent className="space-y-4">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div className="space-y-2">
-                    <label htmlFor="firstName" className="text-sm font-medium text-foreground">
-                      First Name
-                    </label>
-                    <Input id="firstName" placeholder="John" />
+              <CardContent>
+                <form onSubmit={handleSubmit} className="space-y-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div className="space-y-2">
+                      <label htmlFor="firstName" className="text-sm font-medium text-foreground">
+                        First Name *
+                      </label>
+                      <Input 
+                        id="firstName" 
+                        placeholder="John" 
+                        value={formData.firstName}
+                        onChange={handleInputChange}
+                        required
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <label htmlFor="lastName" className="text-sm font-medium text-foreground">
+                        Last Name
+                      </label>
+                      <Input 
+                        id="lastName" 
+                        placeholder="Doe" 
+                        value={formData.lastName}
+                        onChange={handleInputChange}
+                      />
+                    </div>
                   </div>
                   <div className="space-y-2">
-                    <label htmlFor="lastName" className="text-sm font-medium text-foreground">
-                      Last Name
+                    <label htmlFor="email" className="text-sm font-medium text-foreground">
+                      Email Address *
                     </label>
-                    <Input id="lastName" placeholder="Doe" />
+                    <Input 
+                      id="email" 
+                      type="email" 
+                      placeholder="john@company.com" 
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      required
+                    />
                   </div>
-                </div>
-                <div className="space-y-2">
-                  <label htmlFor="email" className="text-sm font-medium text-foreground">
-                    Email Address
-                  </label>
-                  <Input id="email" type="email" placeholder="john@company.com" />
-                </div>
-                <div className="space-y-2">
-                  <label htmlFor="subject" className="text-sm font-medium text-foreground">
-                    Subject
-                  </label>
-                  <Input id="subject" placeholder="Internship Opportunity" />
-                </div>
-                <div className="space-y-2">
-                  <label htmlFor="message" className="text-sm font-medium text-foreground">
-                    Message
-                  </label>
-                  <Textarea
-                    id="message"
-                    placeholder="Your message here..."
-                    className="min-h-[120px] resize-none"
-                  />
-                </div>
-                <Button className="w-full btn-glow" size="lg">
-                  <Send className="w-4 h-4 mr-2" />
-                  Send Message
-                </Button>
-                <p className="text-xs text-center text-muted-foreground flex items-center justify-center gap-1">
-                  <Clock className="w-3 h-3" />
-                  Usually responds within 24 hours
-                </p>
+                  <div className="space-y-2">
+                    <label htmlFor="subject" className="text-sm font-medium text-foreground">
+                      Subject
+                    </label>
+                    <Input 
+                      id="subject" 
+                      placeholder="Internship Opportunity" 
+                      value={formData.subject}
+                      onChange={handleInputChange}
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <label htmlFor="message" className="text-sm font-medium text-foreground">
+                      Message *
+                    </label>
+                    <Textarea
+                      id="message"
+                      placeholder="Your message here..."
+                      className="min-h-[120px] resize-none"
+                      value={formData.message}
+                      onChange={handleInputChange}
+                      required
+                    />
+                  </div>
+                  <Button 
+                    type="submit" 
+                    className="w-full btn-glow" 
+                    size="lg"
+                    disabled={isSubmitting}
+                  >
+                    <Send className="w-4 h-4 mr-2" />
+                    {isSubmitting ? "Opening email..." : "Send Message"}
+                  </Button>
+                  <p className="text-xs text-center text-muted-foreground flex items-center justify-center gap-1">
+                    <Clock className="w-3 h-3" />
+                    Usually responds within 24 hours
+                  </p>
+                </form>
               </CardContent>
             </Card>
           </motion.div>
